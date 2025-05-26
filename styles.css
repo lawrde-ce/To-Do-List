@@ -1,0 +1,58 @@
+:where([class^="ri-"])::before { content: "\f3c2"; }
+      body {
+          font-family: 'Inter', sans-serif;
+          background-color: #f9fafb;
+      }
+      .task-container {
+          min-height: 300px;
+      }
+      .checkbox-container input[type="checkbox"] {
+          display: none;
+      }
+      .custom-checkbox {
+          width: 20px;
+          height: 20px;
+          border: 2px solid #e5e7eb;
+          border-radius: 4px;
+          position: relative;
+          cursor: pointer;
+          transition: all 0.2s ease;
+      }
+      .custom-checkbox::after {
+          content: "";
+          position: absolute;
+          display: none;
+          left: 6px;
+          top: 2px;
+          width: 5px;
+          height: 10px;
+          border: solid white;
+          border-width: 0 2px 2px 0;
+          transform: rotate(45deg);
+      }
+      input[type="checkbox"]:checked ~ .custom-checkbox {
+          background-color: #3b82f6;
+          border-color: #3b82f6;
+      }
+      input[type="checkbox"]:checked ~ .custom-checkbox::after {
+          display: block;
+      }
+      .task-text {
+          transition: all 0.3s ease;
+      }
+      input[type="checkbox"]:checked ~ .task-text {
+          text-decoration: line-through;
+          color: #9ca3af;
+      }
+      .delete-btn {
+          opacity: 0;
+          transition: opacity 0.2s ease;
+      }
+      .task-item:hover .delete-btn {
+          opacity: 1;
+      }
+      @media (max-width: 640px) {
+          .delete-btn {
+              opacity: 1;
+          }
+      }
